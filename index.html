@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+<style>
+    body [type=button]{
+      background-color: rgb(65, 126, 65);
+      border-radius: 10px;
+      padding: 5px;
+      color: white;
+  }
+  .popup{
+      background: rgba(0,0,0,0.6);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+  }
+  .popup-content{
+      height: 380px;
+      width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      position: relative;
+  }
+  .close{
+      position: absolute;
+      top: -4px;
+      right: -5px;
+      cursor: pointer;
+      background: red;
+      color: white;
+      border-radius: 20%;
+  }
+</style>
+</head>
+<body>
+    
+<div class="row">
+
+        <div class="col-md-6 mb-3 ">
+            <label for="customRange3" class="form-label">range test case</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+        </div>
+
+</div>
+
+<div class="popup">
+    <div class="popup-content">
+        <p class="close">close</p>
+        <h2>Test Cases Results</h2>
+        <div class="" id="pop" style="color: green;">
+
+        </div>
+
+    </div>
+    
+</div>
+<button class="btn btn-primary"  id="button" onclick="finalresult()">Submit form</button>
+
+
+<script>
+  
+    
+   
+
+   
+
+
+
+
+
+
+
+    
+
+
+
+    function validateMin(a){
+        var x = document.getElementsByTagName("input")[0].min;
+        if(x==a){
+            document.getElementById("pop").innerHTML +="<p style=\"color:green\">test case 1 passed</p>";
+        }
+        else{
+            document.getElementById("pop").innerHTML +="<p style=\"color:red\">test case 1 failed</p>";
+        }
+        
+
+    }
+
+    function validateMax(argmax){
+        var x1 = document.getElementsByTagName("input")[0].max;
+        if(argmax==x1){
+            document.getElementById("pop").innerHTML +="<p style=\"color:green\">test case 2 passed</p>";
+        }
+        else{
+            document.getElementById("pop").innerHTML +="<p style=\"color:red\">test case 2 failed</p>";
+        }
+    }
+
+
+    function validateStep(argstep){
+        var x2 = document.getElementsByTagName("input")[0].step;
+        if(x2==argstep){
+            document.getElementById("pop").innerHTML +="<p style=\"color:green\">test case 3 passed</p>";
+        }
+        else{
+            document.getElementById("pop").innerHTML +="<p style=\"color:red\">test case 3 failed</p>";
+        }
+
+    }
+
+    function validatelabel(arglabel){
+        var lab = document.getElementsByTagName("label")[0].innerText;
+        if(arglabel==lab){
+            document.getElementById("pop").innerHTML +="<p style=\"color:green\">test case 4 passed</p>";
+        }
+        else{
+            document.getElementById("pop").innerHTML +="<p style=\"color:red\">test case 4 failed</p>";
+        }
+    }
+
+
+//passing arguments
+
+
+
+
+
+
+function finalresult(){
+            var minvalue = 0;
+        var maxvalue = 10;
+        var stepvalue = 0.5;
+        var labelvalue = "range test case";
+    validateMin(minvalue);
+    validateMax(maxvalue);
+    validateStep(stepvalue);
+    validatelabel(labelvalue);
+}
+
+
+
+
+
+
+
+
+
+
+    document.getElementById("button").addEventListener("click",function(){
+        document.querySelector(".popup").style.display="flex";
+    })
+    document.querySelector(".close").addEventListener("click",function(){
+        document.querySelector(".popup").style.display="none";
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+</html>
